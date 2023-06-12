@@ -1,0 +1,92 @@
+
+.topnav {
+    background-color: #b11d1d;
+    overflow: hidden;
+}
+
+  /* Style the links inside the navigation bar */
+    .topnav a {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+    /* Change the color of links on hover */
+    .topnav a:hover {
+        background-color: #f8c419;
+        color: black;
+    }
+
+    /* Add a color to the active/current link */
+    .topnav a.active {
+        background-color: #f8c419;
+        color: rgb(0, 0, 0);
+    }
+
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #f9feff;
+    }
+    
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content-wrapper{
+    margin-left: 650px;
+}
+
+.table-wrapper{
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    width: 500px;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #d6cfcf;
+    text-align: left;
+}
+
+th {
+    background-color: #b11d1d;
+    color: #f2f2f2;
+}
+
+.total-debitos{
+    display: inline-block;
+    content: flex;
+    padding: 10px;
+    background-color: #cc575773;
+}
+
+.go {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #f8c419;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    padding: 5px 10px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    margin-top: 50px;
+}

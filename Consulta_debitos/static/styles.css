@@ -1,0 +1,95 @@
+.topnav {
+    background-color: #b11d1d;
+    overflow: hidden;
+  }
+  
+  .topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .topnav a:hover {
+    background-color: #f8c419;
+    color: black;
+  }
+  
+  .topnav a.active {
+    background-color: #f8c419;
+    color: rgb(0, 0, 0);
+  }
+  
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Altere para 'hidden' */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.content-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  height: 354px;
+  background: #b11d1d;
+  color: #f2f2f2;
+  border-radius: 40px 0 40px 0;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 400px;
+  padding: 30px;
+  border: 1px solid #ccc;
+  text-align: center;
+  overflow-y: hidden;
+  overflow-x: auto;
+  margin-top: 180px;
+  margin-left: 750px;
+  margin-bottom: 200px;
+}
+
+/* label{
+  display: block;
+  cursor: pointer;
+  padding-left: 10px;
+  font-size: 1.1em;
+  background-color: #f8c419;
+  width: 100%;
+} */
+
+input[type="file"] {
+  display: block;
+  width: 100%;
+}
+
+.go {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f8c419;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 5px 10px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  margin-top: 50px;
+}
+  

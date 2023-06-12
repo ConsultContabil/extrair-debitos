@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width-device-width, initial-scale-1.0">
+        <title>Resultado</title>
+        <link rel="stylesheet" type="text/css" href="/static/styles_result.css">
+        <img src="/static/color.png">
+    </head>
+    <body>
+        <div class="container">
+            <div class="topnav">
+                <a class="active" href="https://consultcontabil.com/">Home</a>
+                <a href="https://consultcontabil.com/">Sobre nós</a>
+            </div>
+            <div class="content-wrapper">
+                <h1>Resultado da Extração:</h1>
+                <h2>Empresa: {{ nome_empresa }}</h2>
+                <h2>CNPJ: {{ cnpj }}</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <!-- <th>Nome do Débito</th>
+                            <th>Valor</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{ tabela|safe }}
+                    </tbody>
+                </table>
+                <br><br>
+                <div class="total-debitos">
+                    <h3>Total de Débitos: {{ total_debitos }}</h3>
+                </div>
+                <br><br>
+                <a href="/"><button class="go">Nova Extração</button></a>
+            </div>
+        </div>
+    </body>
+</html>

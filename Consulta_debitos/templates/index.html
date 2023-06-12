@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width-device-width, initial-scale-1.0">
+        <title>Resumo de relatório fiscal</title>
+        <link rel="stylesheet" type="text/css" href="/static/styles.css">
+        <img src="/static/color.png">
+    </head>
+    <body>
+        <div class="container">
+            <div class="topnav">
+                <a class="active" href="https://consultcontabil.com/">Home</a>
+                <a href="https://consultcontabil.com/">Sobre nós</a>
+            </div>
+            <div class="content_wrapper">
+                <div class="content">
+                    <h1>Extrair Débitos de relatório</h1>
+                    <p>Selecione o arquivo do relatório de débitos:</p>
+                    <form action="/resultado" method="post" enctype="multipart/form-data">
+                        <!-- <label for="arquivo_pdf">Escolher arquivo</label> -->
+                        <input type="file" name="arquivo_pdf" id="arquivo_pdf" required>
+                        <br>
+                        <!-- <label for="nomes_debitos">Escolher arquivo</label> -->
+                        <!-- <input type="file" name="codigos_debitos" id="codigos_debitos" required> -->
+                        <!-- <input type="file" name="nomes_debitos" id="nomes_debitos" required> -->
+                        <button class="go" type="submit">Extrair Débitos</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
