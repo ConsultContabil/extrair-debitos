@@ -28,12 +28,14 @@ def buscar_valores_debitos(texto_pdf):
     padrao_linha1 = r"(\d{4}-\d{2} - [A-Za-z.-]+)\s+\d{2}/\d{4}(?:\s+\d{2}/\d{2}/\d{4})?\s+[\d.,]+\s+([\d.,]+)\s+DEVEDOR"
     padrao_linha2 = r"(SIMPLES NAC\.)\s+\d{2}/\d{4}(?:\s+\d{2}/\d{2}/\d{4})?\s+[\d.,]+\s+([\d.,]+)\s+DEVEDOR"
     padrao_linha3 = r"(\d{4}-\d{2} - [A-Za-z.-]+)\s+\d{4}\s+\d{2}/\d{2}/\d{4}\s+[\d.,]+\s+([\d.,]+)\s+DEVEDOR"
-    padrao_linha4 = r"\d{4}-\d{2} - ([A-Za-z/. -]+)\s+\d{2}/\d{2}/\d{4}\s+\d{2}/\d{2}/\d{4}\s+([\d.,]+)\s+([\d.,]+)\s+DEVEDOR"
+    padrao_linha4 = r"\d{4}-\d{2} - ([\w\s/º.-]+)\s+\d{2}/\d{2}/\d{4}\s+\d{2}/\d{2}/\d{4}\s+([\d.,]+)\s+([\d.,]+)\s+DEVEDOR"
+    padrao_linha5 = r"\d{4}-\d{2} - ([A-Za-z.-]+)\s+(\d{1,2}(?:º|ª)\s+TRIM/\d{4}).*?([\d.,]+)\s+([\d.,]+)\s+DEVEDOR"
 
     matches1 = re.findall(padrao_linha1, texto_pdf, flags=re.IGNORECASE)
     matches2 = re.findall(padrao_linha2, texto_pdf, flags=re.IGNORECASE)
     matches3 = re.findall(padrao_linha3, texto_pdf, flags=re.IGNORECASE)
     matches4 = re.findall(padrao_linha4, texto_pdf, flags=re.IGNORECASE)
+    matches5 = re.findall(padrao_linha5, texto_pdf, flags=re.IGNORECASE)
 
     for match in matches1:
         nome_debito = match[0].split(" - ", 1)[1].strip()
@@ -63,8 +65,18 @@ def buscar_valores_debitos(texto_pdf):
             resultados[nome_debito] = saldo_devedor
 
     for match in matches4:
-        nome_debito = match[0].split(" - ", 1)[1].strip()
+        nome_debito = match[0].split(" - ", 0)[-1].strip()
         saldo_devedor = float(match[1].replace(".", "").replace(",", "."))
+
+        if nome_debito in resultados:
+            resultados[nome_debito] += saldo_devedor
+        else:
+            resultados[nome_debito] = saldo_devedor
+
+    for match in matches5:
+        nome_debito = match[0].strip()
+        trimestre = match[0].split(" ")
+        saldo_devedor = float(match[2].replace(".", "").replace(",", "."))
 
         if nome_debito in resultados:
             resultados[nome_debito] += saldo_devedor
